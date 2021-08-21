@@ -50,4 +50,7 @@ module.exports = {
     "@chakra-ui/gatsby-plugin",
     "gatsby-plugin-mdx",
   ],
+  flags: {
+    DEV_SSR: false,
+  },
 };
