@@ -2,6 +2,8 @@ module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
     title: "Centenary of the Master",
+    heroImage:
+      "https://www.datocms-assets.com/6348/1568952852-design-concept-shrine-abdulbaha-unveiled-04.jpg?w=1200&amp;h=1000&amp;auto=format&amp;q=55&amp;fit=max?&w=640",
   },
   plugins: [
     "gatsby-plugin-netlify-cms",

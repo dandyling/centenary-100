@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, Grid, Text, Image } from "@chakra-ui/react";
 import * as React from "react";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
@@ -6,24 +6,37 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 const IndexPage = ({ data }) => {
   return (
     <Flex direction="column">
-      Pages
-      <Flex direction="column">
+      <Image
+        src={data.site.siteMetadata.heroImage}
+        alt="Resources for the Centenary of Abdu'l Baha"
+      />
+      <Grid gridTemplateColumns="repeat(2, 1fr)" gridAutoRows="auto">
         {data.allMdx.edges.map((edge) => {
+          const { node } = edge;
           return (
-            <li key={edge.node.id}>
-              <p>{edge.node.frontmatter.title}</p>
-              <MDXRenderer>{edge.node.body}</MDXRenderer>
-              <img src={edge.node.frontmatter.image} />
-            </li>
+            <Flex flexDirection="column" alignItems="center">
+              <Image
+                key={node.id}
+                src={node.frontmatter.image}
+                alt={node.frontmatter.title}
+              />
+              <Text>{node.frontmatter.title}</Text>
+            </Flex>
           );
         })}
-      </Flex>
+      </Grid>
     </Flex>
   );
 };
 
 export const query = graphql`
   query pages {
+    site {
+      id
+      siteMetadata {
+        heroImage
+      }
+    }
     allMdx {
       edges {
         node {
