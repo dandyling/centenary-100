@@ -13,6 +13,7 @@ const IndexPage = ({ data }) => {
             <li key={edge.node.id}>
               <p>{edge.node.frontmatter.title}</p>
               <MDXRenderer>{edge.node.body}</MDXRenderer>
+              <img src={edge.node.frontmatter.image} />
             </li>
           );
         })}
@@ -29,6 +30,7 @@ export const query = graphql`
           id
           frontmatter {
             title
+            image
           }
           body
         }
