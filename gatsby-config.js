@@ -39,5 +39,15 @@ module.exports = {
       },
       __key: "pages",
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "resources",
+        path: "./content/blog/",
+      },
+      __key: "resources",
+    },
+    "@chakra-ui/gatsby-plugin",
+    "gatsby-plugin-mdx",
   ],
 };
