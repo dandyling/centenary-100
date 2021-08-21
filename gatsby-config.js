@@ -48,7 +48,12 @@ module.exports = {
       __key: "resources",
     },
     "@chakra-ui/gatsby-plugin",
-    "gatsby-plugin-mdx",
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
+    },
   ],
   flags: {
     DEV_SSR: false,
