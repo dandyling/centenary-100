@@ -5,4 +5,4 @@ description: Dawn to the Light
 ---
 Dawn to the Light is released by the Universal House of Justice to mark the bicentennial of the birth of the Bab.  You can find the link to the video here <https://www.youtube.com/watch?v=0h9hLL3JFnI>
 
-![Dawn to the Light](2.png "Dawn to the Light")
+![Dawn to the Light](4.png "Dawn to the Light")
