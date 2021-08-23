@@ -1,7 +1,7 @@
-import { Flex, Grid, Text, Image } from "@chakra-ui/react";
+import { Flex, Grid, Text, Image, AspectRatio } from "@chakra-ui/react";
 import * as React from "react";
 import { graphql } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { RatioContainer } from "../components/RatioContainer";
 
 const IndexPage = ({ data }) => {
   return (
@@ -14,12 +14,19 @@ const IndexPage = ({ data }) => {
         {data.allMdx.edges.map((edge) => {
           const { node } = edge;
           return (
-            <Flex flexDirection="column" alignItems="center">
-              <Image
-                key={node.id}
-                src={node.frontmatter.image}
-                alt={node.frontmatter.title}
-              />
+            <Flex
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <RatioContainer ratio="4 / 3" maxWidth="100%">
+                <Image
+                  objectFit="cover"
+                  key={node.id}
+                  src={node.frontmatter.image}
+                  alt={node.frontmatter.title}
+                />
+              </RatioContainer>
               <Text>{node.frontmatter.title}</Text>
             </Flex>
           );
