@@ -1,37 +1,94 @@
-import { Flex, Grid, Text, Image, AspectRatio } from "@chakra-ui/react";
-import * as React from "react";
+import { Container, Flex, Grid, Heading, Image, Text } from "@chakra-ui/react";
 import { graphql } from "gatsby";
+import * as React from "react";
 import { RatioContainer } from "../components/RatioContainer";
 
 const IndexPage = ({ data }) => {
   return (
-    <Flex direction="column">
-      <Image
-        src={data.site.siteMetadata.heroImage}
-        alt="Resources for the Centenary of Abdu'l Baha"
-      />
-      <Grid gridTemplateColumns="repeat(2, 1fr)" gridAutoRows="auto">
-        {data.allMdx.edges.map((edge) => {
-          const { node } = edge;
-          return (
-            <Flex
-              flexDirection="column"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <RatioContainer ratio="4 / 3" maxWidth="100%">
-                <Image
-                  objectFit="cover"
-                  key={node.id}
-                  src={node.frontmatter.image}
-                  alt={node.frontmatter.title}
-                />
-              </RatioContainer>
-              <Text>{node.frontmatter.title}</Text>
-            </Flex>
-          );
-        })}
-      </Grid>
+    <Flex as="main" direction="column">
+      <Flex
+        as="section"
+        bgImage={`url(${data.site.siteMetadata.heroImage})`}
+        backgroundPosition="center"
+        backgroundRepeat="no-repeat"
+        backgroundSize="cover"
+        height={["2xl", null, "3xl"]}
+        justifyContent="center"
+        alignItems="center"
+        width="100%"
+      >
+        <Container
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          textAlign="center"
+          backgroundColor={["blackAlpha.800", null, "white"]}
+          maxWidth={["85%", null, "80ch"]}
+          padding={[4, null, 16]}
+        >
+          <Heading
+            as="h1"
+            color={["white", null, "purple.500"]}
+            textTransform="uppercase"
+            fontSize={["4xl"]}
+            fontWeight="normal"
+            my="4"
+          >
+            Centenary of the Ascension of Abdu'l Baha Resources
+          </Heading>
+        </Container>
+      </Flex>
+      <Flex as="section" padding="4" flexDirection="column">
+        <Heading
+          color="delta"
+          mt="2"
+          fontSize="2xl"
+          fontWeight="semibold"
+          as="h2"
+        >
+          Resources
+        </Heading>
+        <Grid
+          gridTemplateColumns="repeat(2, 1fr)"
+          gridAutoRows="auto"
+          gridColumnGap="8"
+          gridRowGap="4"
+          my="4"
+        >
+          {data.allMdx.edges.map((edge) => {
+            const { node } = edge;
+            return (
+              <Flex
+                flexDirection="column"
+                justifyContent="flex-start"
+                alignItems="center"
+              >
+                <RatioContainer ratio="16 / 9">
+                  <Image
+                    borderRadius="md"
+                    shadow="md"
+                    objectFit="cover"
+                    minWidth="100%"
+                    key={node.id}
+                    src={node.frontmatter.image}
+                    alt={node.frontmatter.title}
+                  />
+                </RatioContainer>
+                <Text
+                  my="2"
+                  fontSize="sm"
+                  textShadow="md"
+                  color="blackAlpha.700"
+                  textAlign="center"
+                >
+                  {node.frontmatter.title}
+                </Text>
+              </Flex>
+            );
+          })}
+        </Grid>
+      </Flex>
     </Flex>
   );
 };
