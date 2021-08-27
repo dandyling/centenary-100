@@ -69,7 +69,7 @@ const IndexPage = ({ data }) => {
                   <Image
                     borderRadius="md"
                     shadow="md"
-                    src={`${node.frontmatter.image}?nf_resize=fit&w=300`}
+                    src={`${node.frontmatter.image}`}
                     alt={node.frontmatter.title}
                   />
                 </RatioContainer>
