@@ -6,6 +6,9 @@ interface RatioContainerProps extends FlexProps {
 }
 
 export const RatioContainer = styled(Flex)<RatioContainerProps>`
-  aspect-ratio: ${(props) => props.ratio ?? "3 / 4"};
-  position: relative;
+  > * {
+    aspect-ratio: ${(props) => props.ratio ?? "3 / 4"};
+    min-width: 100%;
+    object-fit: cover;
+  }
 `;

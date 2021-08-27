@@ -23,13 +23,13 @@ const IndexPage = ({ data }) => {
           justifyContent="center"
           alignItems="center"
           textAlign="center"
-          backgroundColor={["blackAlpha.800", null, "white"]}
+          backgroundColor="blackAlpha.800"
           maxWidth={["85%", null, "80ch"]}
           padding={[4, null, 16]}
         >
           <Heading
             as="h1"
-            color={["white", null, "purple.500"]}
+            color="white"
             textTransform="uppercase"
             fontSize={["4xl"]}
             fontWeight="normal"
@@ -63,15 +63,13 @@ const IndexPage = ({ data }) => {
                 flexDirection="column"
                 justifyContent="flex-start"
                 alignItems="center"
+                key={node.id}
               >
-                <RatioContainer ratio="16 / 9">
+                <RatioContainer minWidth="100%" ratio="16/9">
                   <Image
                     borderRadius="md"
                     shadow="md"
-                    objectFit="cover"
-                    minWidth="100%"
-                    key={node.id}
-                    src={node.frontmatter.image}
+                    src={`${node.frontmatter.image}?nf_resize=fit&w=300`}
                     alt={node.frontmatter.title}
                   />
                 </RatioContainer>
