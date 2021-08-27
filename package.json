@@ -41,6 +41,6 @@
     "react-helmet": "^6.1.0"
   },
   "resolutions": {
-    "sharp": "0.24.0"
+    "gatsby-plugin-manifest": "2.6.1"
   }
 }
